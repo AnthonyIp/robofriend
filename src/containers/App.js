@@ -4,7 +4,7 @@ import {connect}          from 'react-redux';
 import {requestRobots, setSearchField} from "../actions";
 import CardList                        from "../components/CardList";
 import ErrorBoundary                   from "../components/ErrorBoundary";
-import Scroll                          from "../components/Scroll";
+// import Scroll                          from "../components/Scroll";
 import SearchBox                       from "../components/SearchBox";
 import './App.css';
 
@@ -17,8 +17,7 @@ class App extends Component {
     render() {
         const {searchField, onSearchChange, robots, isPending} = this.props;
 
-        console.log(this.state);
-        const filteredRobots = robots.filter(robot => {
+         const filteredRobots = robots.filter(robot => {
             return robot.name.toLowerCase().includes(searchField.toLowerCase());
         })
 
@@ -28,11 +27,11 @@ class App extends Component {
                <div className='tc'>
                    <h1>RoboFriends</h1>
                    <SearchBox searchChange={onSearchChange}/>
-                   <Scroll>
+                   {/*<Scroll>*/}
                        <ErrorBoundary>
                            <CardList robots={filteredRobots}/>
                        </ErrorBoundary>
-                   </Scroll>
+                   {/*</Scroll>*/}
                </div>
     }
 }
